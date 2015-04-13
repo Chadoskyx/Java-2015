@@ -13,9 +13,9 @@ import java.io.File;
  *
  * @author Valery Soto Lastra <valery.soto17@gmail.com>
  */
-public class CrearFichero implements Serializable {
+public class ArchivoUtils implements Serializable {
     
-    private CrearFichero (){
+    private ArchivoUtils (){
         throw new AssertionError();
     }
     

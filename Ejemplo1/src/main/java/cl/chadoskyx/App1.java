@@ -5,15 +5,14 @@
  */
 package cl.chadoskyx;
 
-import cl.chadoskyx.utils.CrearFichero;
-import static cl.chadoskyx.utils.CrearFichero.crearFichero;
+import cl.chadoskyx.utils.ArchivoUtils;
+import static cl.chadoskyx.utils.ArchivoUtils.crearFichero;
 import cl.chadoskyx.utils.FechaUtils;
 import cl.chadoskyx.utils.NumeroUtils;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.util.Date;
 import java.util.Scanner;
 
@@ -24,6 +23,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author Valery
  */
 public class App1 {
+    private static Object writer;
 
     /**
      * @param args the command line arguments
@@ -47,10 +47,11 @@ public class App1 {
         }*/
         Date crearFecha = FechaUtils.crearFecha(dia, mes, anio);
         String fechaEscrita = FechaUtils.fechaEscrita(crearFecha);
-        String CrearFichero = crearFichero(sFichero);
-        System.out.println(fechaEscrita);
-        BufferedWriter bw = new BufferedWriter (new FileWriter(sFichero));
+        //String CrearFichero = crearFichero(sFichero);
+        //System.out.println(fechaEscrita);
+        BufferedWriter bw = new BufferedWriter (new FileWriter(sFichero, true));
         bw.write(fechaEscrita);
+        bw.newLine();
         bw.close();
         
     }
