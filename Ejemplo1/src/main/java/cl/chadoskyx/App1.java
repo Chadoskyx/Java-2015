@@ -5,8 +5,12 @@
  */
 package cl.chadoskyx;
 
+import cl.chadoskyx.utils.CrearFichero;
+import static cl.chadoskyx.utils.CrearFichero.crearFichero;
 import cl.chadoskyx.utils.FechaUtils;
 import cl.chadoskyx.utils.NumeroUtils;
+import java.io.File;
+
 import java.util.Date;
 import java.util.Scanner;
 
@@ -23,7 +27,7 @@ public class App1 {
      */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        //String entrada;
+        String sFichero = "C:\\Users\\Valery\\Documents\\misficheros\\fichero.txt";
         int dia, mes, anio;
         System.out.println("Introduzca su dia de nacimiento");
         dia = in.nextInt();
@@ -40,7 +44,7 @@ public class App1 {
         }*/
         Date crearFecha = FechaUtils.crearFecha(dia, mes, anio);
         String fechaEscrita = FechaUtils.fechaEscrita(crearFecha);
-        
+        String CrearFichero = crearFichero(sFichero);
         System.out.println(fechaEscrita);
         
     }
