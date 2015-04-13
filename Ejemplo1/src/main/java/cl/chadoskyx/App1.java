@@ -30,13 +30,13 @@ public class App1 {
      */
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
-        String sFichero = "user.dir";
+        String sFichero = "Fechas Ingresadas.txt";
         int dia, mes, anio;
         System.out.println("Introduzca su dia de nacimiento");
         dia = in.nextInt();
         System.out.println("ingrese su mes");
         mes = in.nextInt();
-        System.out.println("ingrese aÃ±o");
+        System.out.println("ingrese año");
         anio = in.nextInt();
         /*entrada = in.next();
         // StringUtils.isNumeric(entrada == true)
@@ -47,8 +47,8 @@ public class App1 {
         }*/
         Date crearFecha = FechaUtils.crearFecha(dia, mes, anio);
         String fechaEscrita = FechaUtils.fechaEscrita(crearFecha);
-        String CrearFichero = crearFichero(sFichero);
-        System.out.println(fechaEscrita);
+        //String CrearFichero = crearFichero(sFichero);
+        //System.out.println(fechaEscrita);
         BufferedWriter bw = new BufferedWriter (new FileWriter(sFichero, true));
         bw.write(fechaEscrita);
         bw.newLine();
