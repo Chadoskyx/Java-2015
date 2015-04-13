@@ -36,7 +36,7 @@ public class App1 {
         dia = in.nextInt();
         System.out.println("ingrese su mes");
         mes = in.nextInt();
-        System.out.println("ingrese año");
+        System.out.println("ingrese aÃ±o");
         anio = in.nextInt();
         /*entrada = in.next();
         // StringUtils.isNumeric(entrada == true)
@@ -48,7 +48,7 @@ public class App1 {
         Date crearFecha = FechaUtils.crearFecha(dia, mes, anio);
         String fechaEscrita = FechaUtils.fechaEscrita(crearFecha);
         String CrearFichero = crearFichero(sFichero);
-        //System.out.println(fechaEscrita);
+        System.out.println(fechaEscrita);
         BufferedWriter bw = new BufferedWriter (new FileWriter(sFichero, true));
         bw.write(fechaEscrita);
         bw.newLine();
