@@ -9,7 +9,10 @@ import cl.chadoskyx.utils.CrearFichero;
 import static cl.chadoskyx.utils.CrearFichero.crearFichero;
 import cl.chadoskyx.utils.FechaUtils;
 import cl.chadoskyx.utils.NumeroUtils;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import java.util.Date;
 import java.util.Scanner;
@@ -25,7 +28,7 @@ public class App1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         String sFichero = "C:\\Users\\Valery\\Documents\\misficheros\\fichero.txt";
         int dia, mes, anio;
@@ -46,6 +49,9 @@ public class App1 {
         String fechaEscrita = FechaUtils.fechaEscrita(crearFecha);
         String CrearFichero = crearFichero(sFichero);
         System.out.println(fechaEscrita);
+        BufferedWriter bw = new BufferedWriter (new FileWriter(sFichero));
+        bw.write(fechaEscrita);
+        bw.close();
         
     }
 }
