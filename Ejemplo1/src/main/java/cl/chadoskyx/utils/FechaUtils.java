@@ -20,10 +20,19 @@ import org.apache.commons.lang3.text.WordUtils;
  */
 public class FechaUtils implements Serializable {
 
+    private static final Locale localeChileno = new Locale("es", "CL");
+
     private FechaUtils() {
         throw new AssertionError();
     }
 
+    /**
+     *
+     * @param dia
+     * @param mes
+     * @param anio
+     * @return
+     */
     public static Date crearFecha(int dia, int mes, int anio) {
         Date fecha = null;
 
@@ -32,16 +41,27 @@ public class FechaUtils implements Serializable {
         calendario.set(Calendar.MONTH, mes - 1);
         calendario.set(Calendar.YEAR, anio);
 
+        // Seteamos las 0 horas
+        calendario.set(Calendar.HOUR, 0);
+        calendario.set(Calendar.MINUTE, 0);
+        calendario.set(Calendar.SECOND, 0);
+        calendario.set(Calendar.MILLISECOND, 0);
+
         fecha = calendario.getTime();
 
         return fecha;
     }
 
+    /**
+     *
+     * @param fecha
+     * @return
+     */
     public static String fechaEscrita(Date fecha) {
         String texto = StringUtils.EMPTY;
         if (fecha != null) {
-            DateFormat df = DateFormat.getDateInstance(DateFormat.FULL,new Locale("es", "CL"));
-            texto =  WordUtils.capitalize(df.format(fecha));
+            DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, localeChileno);
+            texto = WordUtils.capitalize(df.format(fecha));
         }
 
         return texto;
