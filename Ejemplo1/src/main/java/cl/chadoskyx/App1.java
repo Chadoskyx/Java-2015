@@ -30,7 +30,7 @@ public class App1 {
      */
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
-        String sFichero = "C:\\Users\\Valery\\Documents\\misficheros\\fichero.txt";
+        String sFichero = "user.dir";
         int dia, mes, anio;
         System.out.println("Introduzca su dia de nacimiento");
         dia = in.nextInt();
@@ -47,7 +47,7 @@ public class App1 {
         }*/
         Date crearFecha = FechaUtils.crearFecha(dia, mes, anio);
         String fechaEscrita = FechaUtils.fechaEscrita(crearFecha);
-        //String CrearFichero = crearFichero(sFichero);
+        String CrearFichero = crearFichero(sFichero);
         //System.out.println(fechaEscrita);
         BufferedWriter bw = new BufferedWriter (new FileWriter(sFichero, true));
         bw.write(fechaEscrita);
