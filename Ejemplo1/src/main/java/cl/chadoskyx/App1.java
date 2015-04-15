@@ -5,6 +5,8 @@ import cl.chadoskyx.utils.FechaUtils;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Scanner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -12,6 +14,8 @@ import java.util.Scanner;
  */
 public class App1 implements Serializable {
 
+    private static final Logger logger = LoggerFactory.getLogger(App1.class);
+    
     /**
      * @param args the command line arguments
      */
@@ -32,5 +36,8 @@ public class App1 implements Serializable {
 
         System.out.printf("Fecha: '%s' # Resultado de escribirlo en archivo: '%s'", fechaEscrita, ok);
         System.out.println();
+        
+        logger.info("la fecha '{}' ingresada esta ok", fechaEscrita);
+        
     }
 }
