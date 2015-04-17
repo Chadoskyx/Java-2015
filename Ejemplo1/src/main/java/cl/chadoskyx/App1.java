@@ -1,10 +1,16 @@
 package cl.chadoskyx;
 
 import cl.chadoskyx.utils.ArchivoUtils;
+import cl.chadoskyx.utils.EdadUtils;
 import cl.chadoskyx.utils.FechaUtils;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 import java.util.Scanner;
+import org.apache.commons.lang3.text.WordUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +21,7 @@ import org.slf4j.LoggerFactory;
 public class App1 implements Serializable {
 
     private static final Logger logger = LoggerFactory.getLogger(App1.class);
+    private static final Locale localeChileno = new Locale("es", "CL");
     
     /**
      * @param args the command line arguments
@@ -29,15 +36,24 @@ public class App1 implements Serializable {
         mes = in.nextInt();
         System.out.println("ingrese año: ");
         anio = in.nextInt();
-
+        
         Date crearFecha = FechaUtils.crearFecha(dia, mes, anio);
         String fechaEscrita = FechaUtils.fechaEscrita(crearFecha);
         boolean ok = ArchivoUtils.agregarLineas(fechaEscrita);
-
         System.out.printf("Fecha: '%s' # Resultado de escribirlo en archivo: '%s'", fechaEscrita, ok);
-        System.out.println();
+        
+        Date fechahoy = new Date(); 
+        String texto = FechaUtils.fechaEscrita(fechahoy) ;
+        System.out.println("\nFecha hoy es " + texto);
+        
+        String edad = EdadUtils.calcularEdad(fechahoy, crearFecha);
+        System.out.println("Edad es: " + edad);
+        
+        
         
         logger.info("la fecha '{}' ingresada esta ok", fechaEscrita);
         
     }
+
+    
 }

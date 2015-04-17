@@ -22,6 +22,7 @@ public class FechaUtils implements Serializable {
 
     private static final Locale localeChileno = new Locale("es", "CL");
 
+
     private FechaUtils() {
         throw new AssertionError();
     }
