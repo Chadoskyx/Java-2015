@@ -48,6 +48,7 @@ public class App1 implements Serializable {
         System.out.println("\nFecha hoy es " + texto);
         
         String edad = EdadUtils.calcularEdad(fechahoy, crearFecha);
+        
         System.out.println("Edad es: " + edad);
         
         
