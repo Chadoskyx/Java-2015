@@ -39,16 +39,16 @@ public static String calcularEdad(Date fechahoy, Date crearFecha){
     
     long fechainicioMs = fechahoy.getTime(); //fecha en milisegundos
     long fechafinalMs = crearFecha.getTime();//fecha en milisegundos
-    long dias = ((fechainicioMs - fechafinalMs)/3600000 * 24);
-    String valor = String.format("%d", dias);
-    //dias de nacimiento
+    long intervalo = fechainicioMs - fechafinalMs;
+    long aniohoy = (((intervalo)/3600000*24*365));
+    long intervalo2 = (intervalo - aniohoy);
+    long meseshoy = (((intervalo)/3600000*24*30)-intervalo2);
+    long intervalo3 = (intervalo2 - meseshoy);
+    long dias = (((intervalo)/3600000 * 24)- intervalo3);
     
+    String valor = String.format("%d %d %d", aniohoy, meseshoy, dias);
     
-    //final long MILLSECS_PER_DAY = 24*60*60*1000;
-    //long diferencia = ((fechainicioMs - fechafinalMs)/MILLSECS_PER_DAY);
-    
-    //String edad = Integer.toString((int) diferencia);
-    
+        
     return ((String) valor);
     
     
