@@ -37,16 +37,22 @@ public static String calcularEdad(Date fechahoy, Date crearFecha){
     catch(ParseException ex){
     }
     
-    long fechainicioMs = fechahoy.getTime();
-    long fechafinalMs = crearFecha.getTime();
-    final long MILLSECS_PER_DAY = 24*60*60*1000;
-    long diferencia = ((fechainicioMs - fechafinalMs)/MILLSECS_PER_DAY);
-    //double dias = Math.floor(diferencia/(24*60*60*1000));
-    //int edadreal = (int) (Math.floor(dias/(365));
-    //int mesreal = 
-    String edad = Integer.toString((int) diferencia);
+    long fechainicioMs = fechahoy.getTime(); //fecha en milisegundos
+    long fechafinalMs = crearFecha.getTime();//fecha en milisegundos
+    long dias = ((fechainicioMs - fechafinalMs)/3600000 * 24);
+    String valor = String.format("%d", dias);
+    //dias de nacimiento
     
-    return ((String) edad);
+    
+    //final long MILLSECS_PER_DAY = 24*60*60*1000;
+    //long diferencia = ((fechainicioMs - fechafinalMs)/MILLSECS_PER_DAY);
+    
+    //String edad = Integer.toString((int) diferencia);
+    
+    return ((String) valor);
+    
+    
+    
 }
 
 }
