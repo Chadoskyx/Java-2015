@@ -49,6 +49,8 @@ public class App1 implements Serializable {
         String edad = EdadUtils.calcularEdad(fechahoy, crearFecha);
         System.out.println("La edad es: " + edad);
 
+        boolean entradaBooleana = ValidaUtils.entradaBooleana("Ingrese un booleano: ");
+        System.out.println(String.format("Su variable boolean es: '%s'", entradaBooleana));
         
         logger.info("la fecha '{}' ingresada esta ok", fechaEscrita);
 
