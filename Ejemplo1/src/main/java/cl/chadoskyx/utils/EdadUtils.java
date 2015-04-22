@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cl.chadoskyx.utils;
 
 import java.io.Serializable;
@@ -10,6 +5,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Calendar;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -17,6 +14,13 @@ import java.util.Calendar;
  */
 public class EdadUtils implements Serializable {
 
+    // Definimos una clase que nos permitirá almacenar información en archivos de texto (logs)
+    private static final Logger logger = LoggerFactory.getLogger(EdadUtils.class);
+
+    /**
+     * Constructor. Las clases utilitarias no se pueden instanciar. Si alguien
+     * lo intenta, le enviaremos una excepción.
+     */
     private EdadUtils() {
         throw new AssertionError();
     }
@@ -42,17 +46,17 @@ public class EdadUtils implements Serializable {
 
         Calendar birthDay = Calendar.getInstance();
         birthDay.setTimeInMillis(crearFecha.getTime());
-        
+
         long currentTime = System.currentTimeMillis();
         Calendar now = Calendar.getInstance();
         now.setTimeInMillis(currentTime);
-        
+
         years = now.get(Calendar.YEAR) - birthDay.get(Calendar.YEAR);
         int currMonth = now.get(Calendar.MONTH) + 1;
         int birthMonth = birthDay.get(Calendar.MONTH) + 1;
-        
+
         months = currMonth - birthMonth;
-        
+
         if (months < 0) {
             years--;
             months = 12 - birthMonth + currMonth;
@@ -63,7 +67,7 @@ public class EdadUtils implements Serializable {
             years--;
             months = 11;
         }
-        
+
         if (now.get(Calendar.DATE) > birthDay.get(Calendar.DATE)) {
             days = now.get(Calendar.DATE) - birthDay.get(Calendar.DATE);
         } else if (now.get(Calendar.DATE) < birthDay.get(Calendar.DATE)) {

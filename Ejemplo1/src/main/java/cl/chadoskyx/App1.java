@@ -1,15 +1,6 @@
 package cl.chadoskyx;
 
-import cl.chadoskyx.utils.ArchivoUtils;
-import cl.chadoskyx.utils.EdadUtils;
-import cl.chadoskyx.utils.FechaUtils;
-import cl.chadoskyx.utils.ValidaUtils;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,41 +10,17 @@ import org.slf4j.LoggerFactory;
  */
 public class App1 implements Serializable {
 
+    // Definimos una clase que nos permitirá almacenar información en archivos de texto (logs)
     private static final Logger logger = LoggerFactory.getLogger(App1.class);
-    private static final Locale localeChileno = new Locale("es", "CL");
+    
 
     /**
-     * @param args the command line arguments
+     * Programa principal
+     *
+     * @param args argumentos que se le pasas desde la ejecución
      */
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-
-        int dia, mes, anio;
-        System.out.println("Introduzca su dia de nacimiento: ");
-        dia = in.nextInt();
-        
-        System.out.println("ingrese su mes: ");
-        mes = in.nextInt();
-        System.out.println("ingrese año: ");
-        anio = in.nextInt();
-
-        Date crearFecha = FechaUtils.crearFecha(dia, mes, anio);
-        String fechaEscrita = FechaUtils.fechaEscrita(crearFecha);
-        boolean ok = ArchivoUtils.agregarLineas(fechaEscrita);
-        System.out.printf("Fecha ingresada: '%s' # Resultado de escribirlo en archivo: '%s'", fechaEscrita, ok);
-
-        Date fechahoy = new Date();
-        String texto = FechaUtils.fechaEscrita(fechahoy);
-        System.out.println("\nFecha hoy es: " + texto);
-
-        String edad = EdadUtils.calcularEdad(fechahoy, crearFecha);
-        System.out.println("La edad es: " + edad);
-
-        boolean entradaBooleana = ValidaUtils.entradaBooleana("Ingrese un booleano: ");
-        System.out.println(String.format("Su variable boolean es: '%s'", entradaBooleana));
-        
-        logger.info("la fecha '{}' ingresada esta ok", fechaEscrita);
-
+        // Programa principal
     }
 
 }

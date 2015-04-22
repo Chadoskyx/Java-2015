@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cl.chadoskyx.utils;
 
 import java.io.BufferedWriter;
@@ -20,8 +15,13 @@ public class ArchivoUtils implements Serializable {
 
     // Definiremos un nombre que será siempre el mismo
     private static final String NOMBRE_ARCHIVO = "fechas_ingresadas.txt";
+    // Definimos una clase que nos permitirá almacenar información en archivos de texto (logs)
     private static final Logger logger = LoggerFactory.getLogger(ArchivoUtils.class);
 
+    /**
+     * Constructor. Las clases utilitarias no se pueden instanciar. Si alguien
+     * lo intenta, le enviaremos una excepción.
+     */
     private ArchivoUtils() {
         throw new AssertionError();
     }
@@ -38,6 +38,7 @@ public class ArchivoUtils implements Serializable {
             // Si el texto que ingreso no está vacío lo agrego al archivo
             if (StringUtils.isNotBlank(texto)) {
 
+                // Java tiene propiedades y valores definidas, que son propiedades de sistema.
                 String ruta = String.format("%s%s%s",
                         System.getProperty("user.dir"),
                         System.getProperty("file.separator"),
@@ -53,7 +54,7 @@ public class ArchivoUtils implements Serializable {
                 ok = true;
             }
         } catch (Exception e) {
-            // Si me caigo defino un error en el método.
+            // Si me caigo defino un error en el método y logueo el error.
             ok = false;
             logger.error("Error al guardar línea: {}", e.toString());
             logger.debug("Error al guardar línea: {}", e.toString(), e);
